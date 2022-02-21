@@ -27,7 +27,7 @@ include('includes/header.php');
             </select>
             <br>
             <label>Name:</label>
-            <input type="input" name="name">
+            <input type="input" name="name" Required>
             <br>
 
             <label>List Price:</label>
