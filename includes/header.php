@@ -12,10 +12,11 @@
     <header>
         <h1>Job Application</h1>
         <div class="navbar">
-            <a href="#home">Home</a>
-            <a href="#news">News</a>
+            <a href="index.php">Home</a>
+            <a href="add_record_form.php">Add Record</a>
+            <a href="category_list.php">Manage Categories</a>
             <div class="dropdown">
-                <button class="dropbtn">Dropdown
+                <button class="dropbtn">Categories
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
@@ -25,6 +26,12 @@
                         </a>
                     <?php endforeach; ?>
                 </div>
+            </div>
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </header>

@@ -73,8 +73,50 @@ $statement3->closeCursor();
                 </div>
             <?php endforeach; ?>
         </div>
-        <p><a href="add_record_form.php">Add Record</a></p>
-        <p><a href="category_list.php">Manage Categories</a></p>
+
+        <?php foreach ($records as $record) : ?>
+            <section>
+                <div class="row row-sm row-40 row-md-50">
+                    <div class="col-sm-6 col-md-12 wow fadeInRight">
+                        <!-- Product Big-->
+                        <article class="product-big">
+                            <div class="unit flex-column flex-md-row align-items-md-stretch">
+                                <div class="unit-left"><a class="product-big-figure" href="#"><img src="image_uploads/<?php echo $record['image']; ?>" alt="" width=" 600" height="366" /></a></div>
+                                <div class="unit-body">
+                                    <div class="product-big-body">
+                                        <h5 class="product-big-title"><?php echo $record['name']; ?></h5>
+
+                                        <p class="product-big-text">Benidorm is a buzzing resort with a big reputation for beach holidays. Situated in sunny Costa Blanca, the town is one of the original Spanish beach resorts...</p>
+
+                                        <div class="button button-black-outline button-ujarak">
+                                            <button>
+                                                <form action="delete_record.php" method="post" id="delete_record_form">
+                                                    <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+                                                    <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+                                                    <input type="submit" value="Delete">
+                                                </form>
+                                            </button>
+                                            <button>
+                                                <form action="edit_record_form.php" method="post" id="delete_record_form">
+                                                    <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+                                                    <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+                                                    <input type="submit" value="Edit">
+                                                </form>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-big-price-wrap"><span class="product-big-price"><?php echo $record['price']; ?></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        <?php endforeach; ?>
+
+
+
     </section>
     <?php
     include('includes/footer.php');

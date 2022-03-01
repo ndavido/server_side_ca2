@@ -25,31 +25,7 @@ h2 {
 h1, h2 {
     color: #333;
 }
-ul {
-    margin: 0 0 1em 0;
-    padding: 0 0 0 2.5em;
-}
-li {
-    margin: 0;
-    padding: 0;
-}
-a {
-    color: rgb(41, 64, 124);
-    font-weight: bold;
-}
-a:hover {
-    color: rgb(208, 133, 4);
-}
-table {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-td, th {
-    border: 1px dashed black;
-    padding: .2em .5em .2em .5em;
-    vertical-align: top;
-    text-align: left;
-}
+
 form {
     margin: 0;
 }
@@ -91,3 +67,211 @@ br {
     display: table;
     clear: both;
   }
+
+  //bootstrap
+  .product-big {
+	position: relative;
+	text-align: left;
+}
+
+.product-big .unit {
+	margin-bottom: -30px;
+	margin-left: 0;
+}
+
+.product-big .unit > * {
+	margin-bottom: 30px;
+	margin-left: 0;
+}
+
+.product-big .unit-body {
+	display: flex;
+	align-items: center;
+}
+
+.product-big * + .group-sm {
+	margin-top: 12px;
+}
+
+.product-big * + .button {
+	margin-top: 25px;
+	min-width: 170px;
+	padding: 17px 28px 15px;
+}
+
+.product-big-figure {
+	position: relative;
+	overflow: hidden;
+	display: block;
+}
+
+.product-big-title {
+	font-weight: 500;
+	letter-spacing: normal;
+	font-size: 21px;
+}
+
+.product-big-rating .icon {
+	font-size: 19px;
+	letter-spacing: 0;
+	line-height: 24px;
+	color: #ffcc00;
+}
+
+.product-big-rating .icon + .icon {
+	margin-left: 0;
+}
+
+.product-big-reviews {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: .1em;
+	font-family: "Montserrat", sans-serif, Arial, sans-serif;
+}
+
+.product-big-reviews, .product-big-reviews:focus, .product-big-reviews:active {
+	color: #9b9b9b;
+}
+
+.product-big-reviews:hover {
+	color: #50ba87;
+}
+
+.product-big-text {
+	letter-spacing: .025em;
+	color: #9b9b9b;
+}
+
+.product-big-price-wrap {
+	position: absolute;
+	overflow: hidden;
+	text-align: center;
+	padding: 8px 10px 6px;
+	top: 0;
+	right: 0;
+	font-size: 18px;
+	line-height: 1;
+	font-weight: 500;
+	letter-spacing: .025em;
+	text-transform: uppercase;
+	font-family: "Montserrat", sans-serif, Arial, sans-serif;
+	color: rgba(255, 255, 255, 0.4);
+	background: transparent;
+	z-index: 1;
+}
+
+.product-big-price-wrap > * {
+	display: block;
+}
+
+.product-big-price-wrap::before {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 14px;
+	width: 400%;
+	height: 100%;
+	background: #01b3a7;
+	transform: skew(45deg);
+	transform-origin: 50% 100%;
+	will-change: transform;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.product-big-price {
+	font-size: 21px;
+	letter-spacing: .025em;
+	color: #ffffff;
+}
+
+* + .product-big-text {
+	margin-top: 6px;
+}
+
+@media (min-width: 768px) {
+	.product-big {
+		border: 1px solid #e1e1e1;
+	}
+	.product-big .unit {
+		min-height: 366px;
+	}
+	.product-big .unit-left {
+		flex-basis: 45%;
+	}
+	.product-big-body {
+		padding: 30px 70px 30px 10%;
+	}
+	.product-big-figure {
+		min-height: 100%;
+	}
+	.product-big-figure img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-height: 100%;
+		min-width: 100%;
+		width: auto;
+		height: auto;
+		max-width: none;
+	}
+	@supports (object-fit: cover) {
+		.product-big-figure img {
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			transform: none;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+	.product-big-price-wrap {
+		top: -1px;
+		right: -1px;
+		padding: 20px 10px 16px;
+		font-size: 20px;
+	}
+	.product-big-price-wrap::before {
+		left: 24px;
+	}
+}
+
+@media (min-width: 992px) {
+	.product-big .unit-left {
+		flex-basis: 50%;
+	}
+	.product-big-body {
+		padding-left: 12%;
+		padding-right: 85px;
+	}
+	.product-big-price-wrap {
+		font-size: 24px;
+		padding: 30px 17px 26px;
+	}
+	.desktop .product-big-figure img {
+		transform: translate(-50%, -50%) scale(1.2);
+		transition: all .3s ease;
+	}
+	@supports (object-fit: cover) {
+		.desktop .product-big-figure img {
+			transform: scale(1.1);
+		}
+	}
+	.desktop .product-big:hover .product-big-figure img {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	@supports (object-fit: cover) {
+		.desktop .product-big:hover .product-big-figure img {
+			transform: none;
+		}
+	}
+}
+
+.ie-edge .product-big .unit,
+.ie-10 .product-big .unit,
+.ie-11 .product-big .unit {
+	height: 366px;
+}
