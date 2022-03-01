@@ -1,7 +1,7 @@
 <!-- the head section -->
 
 <head>
-    <title>My PHP CRUD App</title>
+    <title>Job Application</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -10,11 +10,21 @@
 
 <body>
     <header>
-        <h1>My PHP CRUD app</h1>
+        <h1>Job Application</h1>
         <div class="topnav">
             <a class="active" href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                    <?php foreach ($categories as $category) : ?>
+                        <a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                            <?php echo $category['categoryName']; ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
             <div class="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search">

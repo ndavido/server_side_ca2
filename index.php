@@ -50,36 +50,29 @@ $statement3->closeCursor();
     <section>
         <!-- display a table of records -->
         <h2><?php echo $category_name; ?></h2>
-        <table>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
+        <div>
             <?php foreach ($records as $record) : ?>
-                <tr>
-                    <td><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></td>
-                    <td><?php echo $record['name']; ?></td>
-                    <td class="right"><?php echo $record['price']; ?></td>
-                    <td>
+                <div>
+                    <p><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></p>
+                    <p><?php echo $record['name']; ?></p>
+                    <p class="right"><?php echo $record['price']; ?></p>
+                    <button>
                         <form action="delete_record.php" method="post" id="delete_record_form">
                             <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
                             <input type="submit" value="Delete">
                         </form>
-                    </td>
-                    <td>
+                    </button>
+                    <button>
                         <form action="edit_record_form.php" method="post" id="delete_record_form">
                             <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
                             <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
                             <input type="submit" value="Edit">
                         </form>
-                    </td>
-                </tr>
+                    </button>
+                </div>
             <?php endforeach; ?>
-        </table>
+        </div>
         <p><a href="add_record_form.php">Add Record</a></p>
         <p><a href="category_list.php">Manage Categories</a></p>
     </section>
