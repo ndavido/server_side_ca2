@@ -204,6 +204,9 @@ br {
   clear: both;
 }
 
+/*
+    Content
+*/
 article,
 section {
   display: block;
@@ -541,78 +544,6 @@ textarea {
 button,
 input {
   overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-
-.button-black-outline, .button-black-outline:focus {
-  color: #151515;
-  background-color: transparent;
-  border-color: #151515;
-}
-
-.button-black-outline:hover, .button-black-outline:active {
-  color: #151515;
-  background-color: #01b3a7;
-  border-color: #01b3a7;
-}
-
-.button-black-outline.button-ujarak::before {
-  background: #01b3a7;
-}
-
-.button-black-outline.button-pipaluk, .button-black-outline.button-pipaluk:focus {
-  background: transparent;
-}
-
-.button-black-outline.button-pipaluk::before, .button-black-outline.button-pipaluk:focus::before {
-  background: transparent;
-  border-color: #01b3a7;
-}
-
-.button-black-outline.button-pipaluk::after, .button-black-outline.button-pipaluk:focus::after {
-  border-color: #01b3a7;
-}
-
-.button-black-outline.button-pipaluk:hover, .button-black-outline.button-pipaluk:active {
-  color: #01b3a7;
-  background: transparent;
-}
-
-.button-black-outline.button-wapasha, .button-black-outline.button-wapasha:focus {
-  color: #151515;
-  background: transparent;
-}
-
-.button-black-outline.button-wapasha::before, .button-black-outline.button-wapasha:focus::before {
-  border-color: #151515;
-}
-
-.button-black-outline.button-wapasha::after, .button-black-outline.button-wapasha:focus::after {
-  border-color: #01b3a7;
-}
-
-.button-black-outline.button-wapasha:hover, .button-black-outline.button-wapasha:active {
-  color: #01b3a7;
-  background: transparent;
 }
 
 .product-big {

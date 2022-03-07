@@ -47,7 +47,7 @@ $statement3->closeCursor();
     ?>
     <!--Displaying Data-->
     <?php foreach ($records as $record) : ?>
-        <section class = "section section-sm bg-default">
+        <section class="section section-sm bg-default">
             <div class="row row-sm row-40 row-md-50">
                 <div class="col-sm-6 col-md-12 wow fadeInRight">
                     <!-- Product Big-->
@@ -60,22 +60,17 @@ $statement3->closeCursor();
 
                                     <p class="product-big-text">Benidorm is a buzzing resort with a big reputation for beach holidays. Situated in sunny Costa Blanca, the town is one of the original Spanish beach resorts...</p>
 
-                                    <div class="button button-black-outline button-ujarak">
-                                        <button>
-                                            <form action="delete_record.php" method="post" id="delete_record_form">
-                                                <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
-                                                <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
-                                                <input type="submit" value="Delete">
-                                            </form>
-                                        </button>
-                                        <button>
-                                            <form action="edit_record_form.php" method="post" id="delete_record_form">
-                                                <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
-                                                <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
-                                                <input type="submit" value="Edit">
-                                            </form>
-                                        </button>
-                                    </div>
+                                        <form action="delete_record.php" method="post" id="delete_record_form">
+                                            <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+                                            <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+                                            <input class="button" type="submit" value="Delete">
+                                        </form>
+                                        <form action="edit_record_form.php" method="post" id="delete_record_form">
+                                            <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+                                            <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+                                            <input class="button" type="submit" value="Edit">
+                                        </form>
+                                        
                                     <div class="product-big-price-wrap"><span class="product-big-price">€<?php echo $record['price']; ?></span></div>
                                 </div>
                             </div>
