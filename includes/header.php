@@ -21,9 +21,9 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <?php foreach ($jobs as $job) : ?>
-                        <a href=".?job_id=<?php echo $job['job_id']; ?>">
-                            <?php echo $job['job_name']; ?>
+                    <?php foreach ($categories as $category) : ?>
+                        <a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                            <?php echo $category['categoryName']; ?>
                         </a>
                     <?php endforeach; ?>
                 </div>

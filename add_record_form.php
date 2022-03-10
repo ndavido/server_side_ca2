@@ -1,11 +1,11 @@
 <?php
 require('database.php');
 $query = 'SELECT *
-          FROM job
-          ORDER BY job_id';
+          FROM categories
+          ORDER BY categoryID';
 $statement = $db->prepare($query);
 $statement->execute();
-$jobs = $statement->fetchAll();
+$categories = $statement->fetchAll();
 $statement->closeCursor();
 ?>
 <!-- the head section -->
@@ -18,45 +18,24 @@ include('includes/header.php');
               id="add_record_form">
 
             <label>Category:</label>
-            <select name="job_id">
-            <?php foreach ($jobs as $job) : ?>
-                <option value="<?php echo $job['job_id']; ?>">
-                    <?php echo $job['job_name']; ?>
+            <select name="category_id">
+            <?php foreach ($categories as $category) : ?>
+                <option value="<?php echo $category['categoryID']; ?>">
+                    <?php echo $category['categoryName']; ?>
                 </option>
             <?php endforeach; ?>
             </select>
             <br>
-
-            <label>Job Position:</label>
-            <input type="input" name="job_position" Required>
-            <br>
-
-            <label>Job Description:</label>
-            <input type="input" name="job_description" Required>
-            <br>
-            
-            <label>Company:</label>
-            <input type="input" name="company" Required>
-            <br>
-
-            <label>Location:</label>
-            <input type="input" name="location" Required>
-            <br>
-
-            <label>Yearly Salary:</label>
-            <input type="input" name="yearly_salary" Required>
-            
-            <br>
             <label>Name:</label>
-            <input type="input" name="job_position" Required>
+            <input type="input" name="name" Required>
             <br>
 
-            <label>Yearly Salary:</label>
-            <input type="input" name="yearly_salary">
+            <label>List Price:</label>
+            <input type="input" name="price">
             <br>        
             
             <label>Image:</label>
-            <input type="file" name="images" accept="image/*" />
+            <input type="file" name="image" accept="image/*" />
             <br>
             
             <label>&nbsp;</label>

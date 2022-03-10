@@ -1,19 +1,19 @@
 <?php
 // Get ID
-$job_id = filter_input(INPUT_POST, 'job_id', FILTER_VALIDATE_INT);
+$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 
 // Validate inputs
-if ($job_id == null || $job_id == false) {
-    $error = "Invalid job ID.";
+if ($category_id == null || $category_id == false) {
+    $error = "Invalid category ID.";
     include('error.php');
 } else {
     require_once('database.php');
 
     // Add the product to the database  
-    $query = 'DELETE FROM job 
-              WHERE job_id = :job_id';
+    $query = 'DELETE FROM categories 
+              WHERE categoryID = :category_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':job_id', $job_id);
+    $statement->bindValue(':category_id', $category_id);
     $statement->execute();
     $statement->closeCursor();
 

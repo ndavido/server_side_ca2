@@ -1,17 +1,13 @@
 <?php
 
 // Get the product data
-$job_id = filter_input(INPUT_POST, 'job_id', FILTER_VALIDATE_INT);
-$job_position = filter_input(INPUT_POST, 'job_position');
-$yearly_salary = filter_input(INPUT_POST, 'yearly_salary');
-$location = filter_input(INPUT_POST, 'location');
-$job_desciption = filter_input(INPUT_POST, 'job_description');
-$company = filter_input(INPUT_POST, 'company');
+$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+$name = filter_input(INPUT_POST, 'name');
+$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 
 // Validate inputs
-if ($job_id == null || $job_id == false ||
-    $job_position == null || $yearly_salary == null || 
-    $yearly_salary == null || $location == null || $company == null) {
+if ($category_id == null || $category_id == false ||
+    $name == null || $price == null || $price == false ) {
     $error = "Invalid product data. Check all fields and try again.";
     include('error.php');
     exit();
@@ -23,10 +19,10 @@ if ($job_id == null || $job_id == false ||
 
 // avoid notice
 
-    $imgFile = $_FILES['images']['name'];
-    $tmp_dir = $_FILES['images']['tmp_name'];
-    echo $_FILES['images']['tmp_name'];
-    $imgSize = $_FILES['images']['size'];
+    $imgFile = $_FILES['image']['name'];
+    $tmp_dir = $_FILES['image']['tmp_name'];
+    echo $_FILES['image']['tmp_name'];
+    $imgSize = $_FILES['image']['size'];
 
     if (empty($imgFile)) {
         $image = "";
@@ -66,10 +62,10 @@ if ($job_id == null || $job_id == false ||
     require_once('database.php');
 
     // Add the product to the database 
-    $query = "INSERT INTO joboffers
-                 (job_id,images,job_position,job_description,company,location,yearly_salary)
+    $query = "INSERT INTO records
+                 (categoryID, name, price, image)
               VALUES
-                 (:job_id,:images,:job_position,:job_description,:company,:location,:yearly_salary)";
+                 (:category_id, :name, :price, :image)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':name', $name);

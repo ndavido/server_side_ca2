@@ -10,7 +10,7 @@ if ($name == null) {
     require_once('database.php');
 
     // Add the product to the database
-    $query = "INSERT INTO job (job_id)
+    $query = "INSERT INTO categories (categoryName)
               VALUES (:name)";
     $statement = $db->prepare($query);
     $statement->bindValue(':name', $name);
