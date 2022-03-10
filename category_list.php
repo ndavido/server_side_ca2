@@ -2,11 +2,11 @@
     require_once('database.php');
 
     // Get all categories
-    $query = 'SELECT * FROM categories
-              ORDER BY categoryID';
+    $query = 'SELECT * FROM job
+              ORDER BY job_id';
     $statement = $db->prepare($query);
     $statement->execute();
-    $categories = $statement->fetchAll();
+    $jobs = $statement->fetchAll();
     $statement->closeCursor();
 ?>
 <!-- the head section -->
@@ -20,14 +20,14 @@ include('includes/header.php');
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>
-        <?php foreach ($categories as $category) : ?>
+        <?php foreach ($jobs as $job) : ?>
         <tr>
-            <td><?php echo $category['categoryName']; ?></td>
+            <td><?php echo $job['job_name']; ?></td>
             <td>
                 <form action="delete_category.php" method="post"
                       id="delete_product_form">
-                    <input type="hidden" name="category_id"
-                           value="<?php echo $category['categoryID']; ?>">
+                    <input type="hidden" name="job_id"
+                           value="<?php echo $job['job_id']; ?>">
                     <input type="submit" value="Delete">
                 </form>
             </td>
@@ -41,7 +41,7 @@ include('includes/header.php');
           id="add_category_form">
 
         <label>Name:</label>
-        <input type="input" name="name">
+        <input type="input" name="job_name">
         <input id="add_category_button" type="submit" value="Add">
     </form>
     <br>
