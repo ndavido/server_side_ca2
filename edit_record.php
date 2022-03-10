@@ -1,24 +1,24 @@
 <?php
 
 // Get the record data
-$record_id = filter_input(INPUT_POST, 'record_id', FILTER_VALIDATE_INT);
-$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
-$name = filter_input(INPUT_POST, 'name');
-$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$offer_id = filter_input(INPUT_POST, 'offer_id', FILTER_VALIDATE_INT);
+$job_id = filter_input(INPUT_POST, 'job_id', FILTER_VALIDATE_INT);
+$job_position = filter_input(INPUT_POST, 'job_position');
+$yearly_salary = filter_input(INPUT_POST, 'yearly_salary', FILTER_VALIDATE_FLOAT);
 
 // Validate inputs
-if ($record_id == NULL || $record_id == FALSE || $category_id == NULL ||
-$category_id == FALSE || empty($name) ||
-$price == NULL || $price == FALSE) {
+if ($offer_id == NULL || $offer_id == FALSE || $job_id == NULL ||
+$job_id == FALSE || empty($job_position) ||
+$yearly_salary == NULL || $yearly_salary == FALSE) {
 $error = "Invalid record data. Check all fields and try again.";
 include('error.php');
 } else {
 
 /**************************** Image upload ****************************/
 
-$imgFile = $_FILES['image']['name'];
-$tmp_dir = $_FILES['image']['tmp_name'];
-$imgSize = $_FILES['image']['size'];
+$imgFile = $_FILES['images']['job_position'];
+$tmp_dir = $_FILES['images']['tmp_name'];
+$imgSize = $_FILES['images']['size'];
 $original_image = filter_input(INPUT_POST, 'original_image');
 
 if ($imgFile) {
@@ -48,18 +48,17 @@ $image = $original_image; // old image from database
 // If valid, update the record in the database
 require_once('database.php');
 
-$query = 'UPDATE records
-SET categoryID = :category_id,
-name = :name,
-price = :price,
-image = :image
-WHERE recordID = :record_id';
+$query = 'UPDATE joboffers
+SET job_id = :job_id,
+job_position = :job_position,
+images = :images
+WHERE offer_id = :offer_id';
 $statement = $db->prepare($query);
-$statement->bindValue(':category_id', $category_id);
-$statement->bindValue(':name', $name);
-$statement->bindValue(':price', $price);
-$statement->bindValue(':image', $image);
-$statement->bindValue(':record_id', $record_id);
+$statement->bindValue(':job_id', $job_id);
+$statement->bindValue(':job_position', $job_position);
+$statement->bindValue(':price', $yearly_salary);
+$statement->bindValue(':images', $image);
+$statement->bindValue(':offer_id', $record_id);
 $statement->execute();
 $statement->closeCursor();
 
