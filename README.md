@@ -27,4 +27,4 @@ CREATE TABLE `jobOffers` (`offer_id` INT (10) NOT NULL,
 ___
 The design for my design has come from [this website](https://www.irishjobs.ie/).
  > I wanted to create something unique compared to the beginner code that was received which displayed all data in a table.
- ![alt text](https://github.com/ndavido/server_side_ca2_dawidN_D00239107/main/READMEimages/idea.png "Idea")
+ ![alt text](https://github.com/ndavido/server_side_ca2_dawidN_D00239107/raw/main/READMEimages/idea.PNG "Idea")
