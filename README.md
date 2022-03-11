@@ -23,4 +23,8 @@ CREATE TABLE `jobOffers` (`offer_id` INT (10) NOT NULL,
 						  `yearly_salary` VARCHAR (50) NOT NULL
 					     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-> And after some [research](https://www.irishjobs.ie/) and thinking i have collected the most neccessary information.
+> And after some research and thinking i have collected the most neccessary information needed for a Job Application.
+___
+The design for my design has come from [this website](https://www.irishjobs.ie/).
+ > I wanted to create something unique compared to the beginner code that was received which displayed all data in a table.
+ ![alt text](https://github.com/ndavido/server_side_ca2_dawidN_D00239107/raw/main/READMEimages/idea.png "Idea")
