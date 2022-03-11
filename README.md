@@ -1,8 +1,8 @@
 # Job Application
-A starter project for DkIT students on the Server-Side module.
-### Instructions
-* Create a MySQL database called php-crud in PHP MyAdmin
-* Run the code in the sql-db.txt file in PHP MyAdmin
-* Move the PHP files in to your htdocs folder so Apache can process the PHP code
-* Configure the database.php file to connect to your SQL database
+Hi my name is **Dawid Nalepa**, i am a student at **DKIT** and this is my **CRUD** website for **Server-Side Development**.
+### Idea behind this Project
+* I wanted to create something simple yet functionial that involved the use of CRUD
+* Within a Job Application website, people search for a particular field in which they would like to work and look for places near them
+* In my head it was a simple idea to make the website appealing, easy and user-friendly
+___
 
