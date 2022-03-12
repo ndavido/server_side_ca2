@@ -61,13 +61,13 @@ $statement3->closeCursor();
                                     <p class="product-big-text">Benidorm is a buzzing resort with a big reputation for beach holidays. Situated in sunny Costa Blanca, the town is one of the original Spanish beach resorts...</p>
 
                                         <form action="delete_record.php" method="post" id="delete_record_form">
-                                            <input type="hidden" name="record_id" value="<?php echo $offer['offer_id']; ?>">
-                                            <input type="hidden" name="category_id" value="<?php echo $offer['job_id']; ?>">
+                                            <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
+                                            <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
                                             <input class="button" type="submit" value="Delete">
                                         </form>
                                         <form action="edit_record_form.php" method="post" id="delete_record_form">
-                                            <input type="hidden" name="record_id" value="<?php echo $offer['offer_id']; ?>">
-                                            <input type="hidden" name="category_id" value="<?php echo $offer['job_id']; ?>">
+                                            <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
+                                            <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
                                             <input class="button" type="submit" value="Edit">
                                         </form>
                                         

@@ -10,21 +10,19 @@ $location = filter_input(INPUT_POST, 'location');
 $yearly_salary = filter_input(INPUT_POST, 'yearly_salary');
 
 // Validate inputs
-if (
-    $offer_id == null || $offer_id == false || $job_id == null || $job_id == false ||
-    $job_position == null || $yearly_salary == null || 
-    $company == null || $location == null || $job_description == null
-) {
+if ( $offer_id == null || $offer_id == false || $job_id == null || $job_id == false ||
+    $job_position == null || $yearly_salary == null ||
+    $company == null || $location == null || $job_description == null) {
     $error = "Invalid record data. Check all fields and try again.";
     include('error.php');
 } else {
 
     /**************************** Image upload ****************************/
 
-    $imgFile = $_FILES['image']['name'];
-    $tmp_dir = $_FILES['image']['tmp_name'];
-    $imgSize = $_FILES['image']['size'];
-    $original_image = filter_input(INPUT_POST, 'original_image');
+$imgFile = $_FILES['image']['name'];
+$tmp_dir = $_FILES['image']['tmp_name'];
+$imgSize = $_FILES['image']['size'];
+$original_image = filter_input(INPUT_POST, 'original_image');
 
     if ($imgFile) {
         $upload_dir = 'image_uploads/'; // upload directory	
@@ -53,7 +51,7 @@ if (
     // If valid, update the record in the database
     require_once('database.php');
 
-    $query = 'UPDATE joboffers
+$query = 'UPDATE joboffers
 SET job_id = :job_id,
 image = :image,
 job_position = :job_position,
@@ -62,18 +60,19 @@ company = :company,
 location = :location,
 yearly_salary = :yearly_salary
 WHERE offer_id = :offer_id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':job_id', $job_id);
-    $statement->bindValue(':image', $image);
-    $statement->bindValue(':job_position', $job_position);
-    $statement->bindValue(':job_description', $job_description);
-    $statement->bindValue(':company', $company);
-    $statement->bindValue(':location', $location);
-    $statement->bindValue(':yearly_salary', $yearly_salary);
-    $statement->bindValue(':offer_id', $offer_id);
-    $statement->execute();
-    $statement->closeCursor();
+$statement = $db->prepare($query);
+$statement->bindValue(':job_id', $job_id);
+$statement->bindValue(':image', $image);
+$statement->bindValue(':job_position', $job_position);
+$statement->bindValue(':job_description', $job_description);
+$statement->bindValue(':company', $company);
+$statement->bindValue(':location', $location);
+$statement->bindValue(':yearly_salary', $yearly_salary);
+$statement->bindValue(':offer_id', $offer_id);
+$statement->execute();
+$statement->closeCursor();
 
     // Display the Product List page
     include('index.php');
 }
+?>

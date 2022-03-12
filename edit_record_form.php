@@ -22,15 +22,12 @@ include('includes/header.php');
             <input type="hidden" name="original_image" value="<?php echo $offers['image']; ?>" />
             <input type="hidden" name="offer_id"
                    value="<?php echo $offers['offer_id']; ?>">
-
-            <label>Job ID:</label>
-            <input type="job_id" name="job_id"
+            <input type="hidden" name="job_id"
                    value="<?php echo $offers['job_id']; ?>">
-            <br>
-            
+
             <label>Job Position:</label>
             <input type="input" name="job_position"
-                     value="<?php echo $offers['job_id']; ?>" Required>
+                     value="<?php echo $offers['job_position']; ?>" Required>
             <br>
 
             <label>Job Description:</label>
