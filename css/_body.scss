@@ -43,27 +43,30 @@ br {
 	margin-top: 1em;
 }
 
-/********************************************************************
-* Additional styles for the record Manager application
-********************************************************************/
-#add_record_form {
-	margin: 0.5em 0 1em;
-}
-#add_record_form label {
-	width: 6em;
-	padding-right: 1em;
-	padding-bottom: 0.5em;
-	float: left;
-}
-#add_record_form input {
-	float: left;
-}
-#add_record_form input[text] {
-	width: 15em;
+.jobList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
-.group:after {
-	content: "";
-	display: table;
-	clear: both;
+.firstBox {
+	width: 200;
+	height: 120px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+	border-radius: 25px;
+	text-align: center;
+	margin: 10px;
+}
+
+.secondBox{
+	width: 100px;
+	height: 60px;
+	top: 50%;
+	left: 50%;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	margin-left: 50px;
+	margin-right: 50px;
 }
