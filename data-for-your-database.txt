@@ -1,68 +1,67 @@
+/*
+	Server-Side Development
+	CA2 PHP CRUD
+	Job Application
+	
+	Name		: Dawid Nalepa
+	Student ID	: D00239107
+	Class Group	: SD2b
+*/
 
---
--- Table structure for table `categories`
---
+DROP DATABASE IF EXISTS JobApplication;
+CREATE DATABASE IF NOT EXISTS JobApplication;
+USE JobApplication;
+DROP TABLE IF EXISTS job, jobOffers;
 
-CREATE TABLE `categories` (
-  `categoryID` int(11) NOT NULL,
-  `categoryName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `categories`
---
+/*Create Table Job*/
+CREATE TABLE `job` (`job_id` INT (10) NOT NULL,
+					`job_name` VARCHAR (100) NOT NULL
+				   )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*Create Table Job Offers*/
+CREATE TABLE `jobOffers` (`offer_id` INT (10) NOT NULL,
+						  `job_id` INT (10) NOT NULL,
+						  `image` VARCHAR (255),
+						  `job_position` VARCHAR (100) NOT NULL,
+						  `job_description` VARCHAR (500) NOT NULL,
+						  `company` VARCHAR (100) NOT NULL,
+						  `location` VARCHAR (50) NOT NULL,
+						  `yearly_salary` VARCHAR (50) NOT NULL
+					     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
-(1, 'Category 1'),
-(2, 'Category 2'),
-(3, 'Category 3');
+/*Insert Into Category*/
+INSERT INTO `job` (`job_id`, `job_name`) VALUES
+(1,'IT'),
+(2,'Banking'),
+(3,'Construction'),
+(4,'Marketing'),
+(5,'Sales'),
+(6,'Security'),
+(7,'Tourism');
+/*Insert Into Job Offers*/
+INSERT INTO `jobOffers` (`offer_id`,`job_id`,`image`,`job_position`,`job_description`,`company`,`location`,`yearly_salary`) VALUES
+(01,7,'0001.png','Travel Co-ordinator','You will work with our teams in Manchester and Clare and help support any of our Nurses, Doctors and AHPs into Northern Ireland','TTM Healthcare','Belfast','Not Disclosed'),
+(02,1,'0002.jpg','Senior Application Security Engineer','The company specializes in Education are and are seeking someone that is passionate about security and how it relates to design/development. This is a significant hire for the client and you will be working alongside the Security Manager to identify weaknesses and implement rock solid security procedures.','Reperio Human Capital LTD','Dublin','€90,000 - €105,000 per annum'),
+(03,1,'0003.jpg','Hardware Design Engineer','Cpl are delighted to be partnering with a global electronic company seeking a Senior Hardware Engineer to join their Team in north Cork. This role will see you work as part an innovate design team contributing to projects for leading international clients.','Cpl Resources','Cork','Not Disclosed'),
+(04,1,'0004.jpg','App Developer','We are seeking to appoint a Application Developer with at least 3 years minimum app development/IT software building experience to design and implement web-application projects across the organisation.','itContracting','Waterford','Not Disclosed'),
+(05,2,'0005.png','Tax Senior','GPC Finance is seeking a qualified CTA Tax Senior for a Top 10 Tax advisory firm based in Central Dublin. Through organic growth, this new Tax Senior position has arisen for an ambitious CTA Tax Senior to work on the Tax matters of multiple clients in various sectors.','GPC Finance','Dublin','€45,000 - €55,000 per annum'),
+(06,2,'0005.png','Tax Assistant Manager','GPC Finance is in partnership with a growing professional advisory firm based in Dublin, to appoint a Tax Assistant Manager. This new Tax Assistant Manager position has arisen for an ambitious Qualified CTA who is seeking an opportunity to gain exposure to leading clients. The firm has an excellent career structure set for you to develop at your pace.','GPC Finance','Working from Home','€55,000 - €60,000 per annum'),
+(07,3,'0007.png','Building Surveyor','We are currently recruiting for a fully qualified energetic Building Engineer to join our Services Department. This is a great opportunity for someone with previous experience in building surveying or civil or structural engineering. The successful applicant will be based in Dublin.','Property Health Check','Dublin','Not Disclosed'),
+(08,3,'0008.png','Development Manager','Ideally suit ambitious professional looking to join a young dynamic team, working closely with the Directors on major high density and commercial projects. As this is a medium sized team promotional prospects and performance are rewarded swiftly.','ICDS REcruitment','Dublin','€120,000 - €125,000 per annum'),
+(09,3,'0009.jpg','Construction Director','Construction Director who has worked for a main building contractor or builder developer previously ideally on large housing schemes. The successful Construction Director will report to the Managing Director. There will be the opportunity to work proactively and collaboratively with other members of the team to deliver large scale ground-breaking developments.','GPC - Global Profesional Consultant','Dublin','€140,000 - €150,000'),
+(10,4,'0010.jpg','Marketing Assitant','A Marketing Assistant is required to join an established FMCG organisation in Dublin 4 on an initial three-month contract. Reporting to the Marketing Manager this Marketing Assistant is fundamental to the Marketing Department taking a lead role across number of important cross-portfolio projects and processes including Design Workflow, Event Support, Market Data Analysis and Competitive Intelligence.','Brightwater','Working from Home','35,000 per annum'),
+(11,4,'0010.jpg','Brand Manager','The ideal candidate will suit a candidate with a passion for digital marketing, you will have prior experience in developing an online marketing strategy and building brand awareness. You will work closely with the Managing Director and an external marketing consultant and will have the support of an experienced Marketing Executive.','Brightwater','Dublin','€ 55,000- €65,000 per annum'),
+(12,5,'0012.png','Saas Sales Manager - Ireland','Irish Software comapny providing automated intelligence software utilised in pharmaceutical, industrial and manufacturing environments. Companies use their solutions to track asset performance, life span and integrity. Award winning software used by some of Europes largest brands.','Sigmar Recruitment','Meath','€60,000 - €70,000 per annum'),
+(13,5,'0013.jfif','Sales Manager','We are seeking a Sales Manager as our current Sales Manager will be retiring from the role. We are seeking a technically minded Sales and Marketing professional. You must be able to converse confidently at all levels right up to the closure of sale. You will be working throughout Ireland continuously generating sales and promoting our Products to achieve the company’s agreed targets.','Irish Industrial Tanks','Dublin','€60,000 per annum'),
+(14,5,'0014.png','Telesales Executive','A natural with people, you will provide Sales & Value add to our existing customers by reviewing their plans, dealing with solutions, and ensuring customers are fully aware of all value product and service offerings. Friendly and professional, you will take ownership of every query to get the best offer for the customer, driving service and sales excellence.','Three Ireland','Limerick','Not Disclosed'),
+(15,6,'0015.jpg','Head of Security','The head of security is responsible for maintaining the security of the premises, people, and assets of the organization. On a typical day, the head of security ensures that security measures are properly implemented, educates and trains security personnel, and develops security processes to reduce risk and limit liability for the organization.','HSE','Mayo','Not disclosed'),
+(16,6,'0016.jpg','Information Security Risky Analyst','As a Northern Trust employee ( Partner), you will be part of a flexible and collaborative work culture, which has a strong history of financial strength and stability. Movement within the organization is encouraged, senior leaders are accessible, and you can take pride in working for a company that is committed to strengthening the communities we serve.','Northen Trust','Limerick','Not disclosed'),
+(17,7,'0017.jfif','Tour Guides','As part of a Campus wide strategy to combine all the unique elements and experiences Trinity has to offer across its Campus, whilst sustainably increasing the economic benefits of Tourism to Trinity and improving the visitor experience, Trinity have developed a new product portfolio of Trinity Trails. This will include a suite of Guided, Self-Guided and Premium Tours of the Campus.','Trinity Brand Commercial Services LTD','Dublin','Not Disclosed'),
+(18,7,'0018.jpg','Seasonal Travel Advisor','Deliver tourist information and support to visitors in the Tourist Information Centre (TIC) and through other communication channels, as required. Proactively contribute to national projects that deliver in destination tourist information.','Failte Ireland','Dublin','Not Disclosed');
 
---
--- Table structure for table `records`
---
 
-CREATE TABLE `records` (
-  `recordID` int(11) NOT NULL,
-  `categoryID` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `jobOffers` ADD PRIMARY KEY (`offer_id`);
+ALTER TABLE `job` ADD PRIMARY KEY (`job_id`);
 
---
--- Dumping data for table `records`
---
-
-INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`, `image`) VALUES
-(1, 1, 'Some text', '12.00', '644471.jpg'),
-(2, 1, 'Some text', '15.00', '233012.jpg'),
-(3, 1, 'Some text', '18.00', '329484.jpg'),
-(4, 1, 'Some text', '10.00', '644055.jpg'),
-(5, 2, 'Some text', '16.00', '373465.jpg'),
-(6, 2, 'Some text', '19.00', '373989.jpg'),
-(7, 2, 'Some text', '12.00', '374104.jpg'),
-(8, 2, 'Some text', '10.00', '4733.jpg'),
-(9, 2, 'Some text', '15.00', '834551.jpg'),
-(10, 3, 'Some text', '13.00', '908783.jpg'),
-(11, 3, 'Some text', '17.00', '835545.jpg'),
-(12, 3, 'Some text', '19.00', '119273.jpg');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `records`
---
-ALTER TABLE `records`
-  ADD PRIMARY KEY (`recordID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `records`
---
-ALTER TABLE `records`
-  MODIFY `recordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `jobOffers` MODIFY `offer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+ALTER TABLE `job` MODIFY `job_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
