@@ -1,0 +1,37 @@
+<!-- JavaScript would not work -->
+                <!-- <div class="wrap-input1 validate-input" data-validate="Job Position is required">
+                    <input class="input1" type="input" name="job_position" id="job_position" onblur="job_position_validation();" placeholder="Job Position">
+                    <span class="shadow-input1" id="jp_err"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Company is required">
+                    <input class="input1" type="input" name="company" id="company" onblur="company_validation();" placeholder="Company">
+                    <span class="shadow-input1" id="c_err"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Location is required">
+                    <input class="input1" type="input" name="location" id="location" onblur="location_validation();" placeholder="Location">
+                    <span class="shadow-input1" id="l_err"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Yearly Salary is required">
+                    <input class="input1" type="input" name="yearly_salary" id="yearly_salary" onblur="yearly_salary_validation();" placeholder="Yearly Salary">
+                    <span class="shadow-input1" id="ys_err"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Job Description is required">
+                    <input class="input1" type="input" name="job_description" id="job_description" onblur="job_descirption_validation();" placeholder="Job Description">
+                    <span class="shadow-input1" id="jd_err"></span>
+                </div>
+
+                <br>
+
+                <div class="container-contact1-form-btn">
+                    <input class="contact1-form-btn" type="submit" value="Save Changes" disabled="disabled"></input>
+                </div> -->
+                 
+                
+                            <!-- JavaScript would not work  -->
+                <!-- <div class="container-contact1-form-btn">
+                    <input class="contact1-form-btn" type="submit" value="Save Changes" disabled="disabled"></input>
+                </div> -->
