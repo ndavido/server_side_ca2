@@ -12,55 +12,72 @@ $offers = $statement->fetch(PDO::FETCH_ASSOC);
 $statement->closeCursor();
 ?>
 <!-- the head section -->
- <div class="container">
-<?php
-include('includes/header.php');
-?>
-        <h1>Edit Product</h1>
-        <form action="edit_record.php" method="post" enctype="multipart/form-data"
-              id="add_record_form">
-            <input type="hidden" name="original_image" value="<?php echo $offers['image']; ?>" />
-            <input type="hidden" name="offer_id"
-                   value="<?php echo $offers['offer_id']; ?>">
-            <input type="hidden" name="job_id"
-                   value="<?php echo $offers['job_id']; ?>">
+<div class="container">
+       <?php
+       include('includes/header.php');
+       ?>
+       <div class="contact1">
+              <div class="container-contact1">
+                     <div class="contact1-pic js-tilt" data-tilt>
+                            <?php if ($offers['image'] != "") { ?>
+                                   <img src="image_uploads/<?php echo $offers['image']; ?>" alt="IMG">
+                            <?php } ?>
+                     </div>
+                     <form class="contact1-form validate-form" action="edit_record.php" method="post" enctype="multipart/form-data" id="add_record_form">
+                            <span class="contact1-form-title">
+                                   Edit Job Offer
+                            </span>
+                            <input type="hidden" name="original_image" value="<?php echo $offers['image']; ?>" />
+                            <input type="hidden" name="offer_id" value="<?php echo $offers['offer_id']; ?>">
+                            <input type="hidden" name="job_id" value="<?php echo $offers['job_id']; ?>">
+                            <div class="wrap-input1 validate-input" data-validate="Job Position is required">
+                                   <input class="input1" type="text" name="job_position" placeholder="Job Position" value="<?php echo $offers['job_position']; ?>">
+                                   <span class="shadow-input1"></span>
+                            </div>
 
-            <label>Job Position:</label>
-            <input type="input" name="job_position"
-                     value="<?php echo $offers['job_position']; ?>" Required>
-            <br>
+                            <br>
 
-            <label>Job Description:</label>
-            <input type="input" name="job_description"
-                     value="<?php echo $offers['job_description']; ?>">
-            <br>        
+                            <div class="wrap-input1 validate-input" data-validate="Company is required">
+                                   <input class="input1" type="text" name="company" placeholder="Company" value="<?php echo $offers['company']; ?>">
+                                   <span class="shadow-input1"></span>
+                            </div>
 
-            <label>Company:</label>
-            <input type="input" name="company" 
-                     value="<?php echo $offers['company']; ?>">
-            <br>   
+                            <br>
 
-            <label>Location:</label>
-            <input type="input" name="location"
-                       value="<?php echo $offers['location']; ?>">
-            <br>   
+                            <div class="wrap-input1 validate-input" data-validate="Location is required">
+                                   <input class="input1" type="text" name="location" placeholder="Location" value="<?php echo $offers['location']; ?>">
+                                   <span class="shadow-input1"></span>
+                            </div>
 
-            <label>Yearly Salary:</label>
-            <input type="input" name="yearly_salary"
-                     value="<?php echo $offers['yearly_salary']; ?>">
-            <br>
+                            <br>
 
-            <label>Image:</label>
-            <input type="file" name="image" accept="image/*" />
-            <br>            
-            <?php if ($offers['image'] != "") { ?>
-            <p><img src="image_uploads/<?php echo $offers['image']; ?>" height="150" /></p>
-            <?php } ?>
-            
-            <label>&nbsp;</label>
-            <input type="submit" value="Save Changes">
-            <br>
-        </form>
-    <?php
-include('includes/footer.php');
-?>
+                            <div class="wrap-input1 validate-input" data-validate="Yearly Salary is required">
+                                   <input class="input1" type="text" name="yearly_salary" placeholder="Yearly Salary" value="<?php echo $offers['yearly_salary']; ?>">
+                                   <span class="shadow-input1"></span>
+                            </div>
+
+                            <br>
+
+                            <div class="wrap-input1 validate-input" data-validate="Job Description is required">
+                                   <input class="input1" name="job_description" placeholder="Job Description" value="<?php echo $offers['job_description']; ?>">
+                                   <span class="shadow-input1"></span>
+                            </div>
+
+                            <br>
+
+                            <div class="wrap-input1 validate-input" data-validate="Yearly Salary is required">
+                                   <input type="file" name="image" accept="image/*" />
+                                   <span class="shadow-input1"></span>
+                            </div>
+
+                            <br>
+
+                            <div class="container-contact1-form-btn">
+                                   <input class="contact1-form-btn" type="submit" value="Save Changes"></input>
+                            </div>
+                     </form>
+              </div>
+       </div>
+       <?php
+       include('includes/footer.php');
+       ?>
