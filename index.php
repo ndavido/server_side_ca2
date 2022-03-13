@@ -57,20 +57,25 @@ $statement3->closeCursor();
                             <div class="unit-body">
                                 <div class="product-big-body">
                                     <h5 class="product-big-title"><?php echo $offer['job_position']; ?></h5>
+                                    <div class="group-sm group-middle justify-content-start">
+                                        <p class="product-big-reviews"><i class="fa fa-home"> <?php echo $offer['company']; ?></i></p>
+                                        <br>
+                                        <p class="product-big-reviews"><i class="fa fa-map-marker"> <?php echo $offer['location']; ?></i></p>
+                                    </div>
+                                    <br>
+                                    <p class="product-big-text"><?php echo $offer['job_description']; ?></p>
 
-                                    <p class="product-big-text">Benidorm is a buzzing resort with a big reputation for beach holidays. Situated in sunny Costa Blanca, the town is one of the original Spanish beach resorts...</p>
+                                    <form action="delete_record.php" method="post" id="delete_record_form">
+                                        <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
+                                        <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
+                                        <input class="button" type="submit" value="Delete">
+                                    </form>
+                                    <form action="edit_record_form.php" method="post" id="delete_record_form">
+                                        <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
+                                        <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
+                                        <input class="button" type="submit" value="Edit">
+                                    </form>
 
-                                        <form action="delete_record.php" method="post" id="delete_record_form">
-                                            <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
-                                            <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
-                                            <input class="button" type="submit" value="Delete">
-                                        </form>
-                                        <form action="edit_record_form.php" method="post" id="delete_record_form">
-                                            <input type="hidden" name="offer_id" value="<?php echo $offer['offer_id']; ?>">
-                                            <input type="hidden" name="job_id" value="<?php echo $offer['job_id']; ?>">
-                                            <input class="button" type="submit" value="Edit">
-                                        </form>
-                                        
                                     <div class="product-big-price-wrap"><span class="product-big-price"><?php echo $offer['yearly_salary']; ?></span></div>
                                 </div>
                             </div>
